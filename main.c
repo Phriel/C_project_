@@ -1,27 +1,26 @@
 #include "dir.h"
 #include "bitmap.h"
-#include "head.h"
 
 int main()
 {
     char file_path[_MAX_PATH] = "./image_file";
-    printf("ÆÄÀÏ °Ë»çÁß...\n");
+    printf("íŒŒì¼ ê²€ì‚¬ì¤‘...\n");
     File_Search(file_path);
-    printf("\n[ÃÑ %d°³ÀÇ ÆÄÀÏ °Ë»ö]\nº¯È¯ÇÒ ÆÄÀÏ ¹øÈ£ : ", file_num);
+    printf("\n[ì´ %dê°œì˜ íŒŒì¼ ê²€ìƒ‰]\në³€í™˜í•  íŒŒì¼ ë²ˆí˜¸ : ", file_num);
 
-    int num; //¿øÇÏ´Â ¼ıÀÚ ¹øÈ£
+    int num; //ì›í•˜ëŠ” ìˆ«ì ë²ˆí˜¸
     scanf_s("%d", &num);
     char image_path[50];
     strcpy(image_path, file_arr[num]);
     
     int retr = bitfunc(image_path);
     if (retr == 0) {
-        printf("\nÇÁ·Î±×·¥ ½ÇÇà ¿À·ù\n");
+        printf("\ní”„ë¡œê·¸ë¨ ì‹¤í–‰ ì˜¤ë¥˜\n");
         system("PAUSE");
         return 0;
     }
     else {
-        printf("\nÇÁ·Î±×·¥ ½ÇÇà ¿Ï·á\n");
+        printf("\ní”„ë¡œê·¸ë¨ ì‹¤í–‰ ì™„ë£Œ\n");
         system("PAUSE");
         return 0;
     }
