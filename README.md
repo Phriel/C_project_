@@ -1,7 +1,7 @@
 # C_project_
 -----
 소스코드:
-  - main.c : main함수 있는 소스코드
+  - main.c : main함수 있는 c파일
   - dir.h : 딕셔너리 관련 헤더파일
   - bitmap.h : 주요 실행 코드 관련 헤더파일 
 
