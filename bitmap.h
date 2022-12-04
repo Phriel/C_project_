@@ -1,157 +1,148 @@
 #pragma once
 
-#pragma pack(push,1)                // ±¸Á¶Ã¼¸¦ 1¹ÙÀÌÆ® Å©±â·Î Á¤·Ä
-typedef struct {      // BMP ºñÆ®¸Ê ÆÄÀÏ Çì´õ ±¸Á¶Ã¼
-    unsigned short bfType;           // BMP ÆÄÀÏ ¸ÅÁ÷ ³Ñ¹ö
-    unsigned int   bfSize;           // ÆÄÀÏ Å©±â
-    unsigned short bfReserved1;      // ¿¹¾à
-    unsigned short bfReserved2;      // ¿¹¾à
-    unsigned int   bfOffBits;        // ºñÆ®¸Ê µ¥ÀÌÅÍÀÇ ½ÃÀÛ À§Ä¡
+#pragma pack(push,1)                // êµ¬ì¡°ì²´ë¥¼ 1ë°”ì´íŠ¸ í¬ê¸°ë¡œ ì •ë ¬
+typedef struct {      // BMP ë¹„íŠ¸ë§µ íŒŒì¼ í—¤ë” êµ¬ì¡°ì²´
+    unsigned short bfType;           // BMP íŒŒì¼ ë§¤ì§ ë„˜ë²„
+    unsigned int   bfSize;           // íŒŒì¼ í¬ê¸°
+    unsigned short bfReserved1;      // ì˜ˆì•½
+    unsigned short bfReserved2;      // ì˜ˆì•½
+    unsigned int   bfOffBits;        // ë¹„íŠ¸ë§µ ë°ì´í„°ì˜ ì‹œì‘ ìœ„ì¹˜
 }BITMAP_FILEHEADER;
-typedef struct {      // BMP ºñÆ®¸Ê Á¤º¸ Çì´õ ±¸Á¶Ã¼(DIB Çì´õ)
-    unsigned int   biSize;           // ÇöÀç ±¸Á¶Ã¼ÀÇ Å©±â
-    int            biWidth;          // ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â
-    int            biHeight;         // ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â
-    unsigned short biPlanes;         // »ç¿ëÇÏ´Â »ö»óÆÇÀÇ ¼ö
-    unsigned short biBitCount;       // ÇÈ¼¿ ÇÏ³ª¸¦ Ç¥ÇöÇÏ´Â ºñÆ® ¼ö
-    unsigned int   biCompression;    // ¾ĞÃà ¹æ½Ä
-    unsigned int   biSizeImage;      // ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ ÇÈ¼¿ µ¥ÀÌÅÍ Å©±â
-    int            biXPelsPerMeter;  // ±×¸²ÀÇ °¡·Î ÇØ»óµµ(¹ÌÅÍ´ç ÇÈ¼¿)
-    int            biYPelsPerMeter;  // ±×¸²ÀÇ ¼¼·Î ÇØ»óµµ(¹ÌÅÍ´ç ÇÈ¼¿)
-    unsigned int   biClrUsed;        // »ö»ó Å×ÀÌºí¿¡¼­ ½ÇÁ¦ »ç¿ëµÇ´Â »ö»ó ¼ö
-    unsigned int   biClrImportant;   // ºñÆ®¸ÊÀ» Ç¥ÇöÇÏ±â À§ÇØ ÇÊ¿äÇÑ »ö»ó ÀÎµ¦½º ¼ö
+typedef struct {      // BMP ë¹„íŠ¸ë§µ ì •ë³´ í—¤ë” êµ¬ì¡°ì²´(DIB í—¤ë”)
+    unsigned int   biSize;           // í˜„ì¬ êµ¬ì¡°ì²´ì˜ í¬ê¸°
+    int            biWidth;          // ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ ê°€ë¡œ í¬ê¸°
+    int            biHeight;         // ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ ì„¸ë¡œ í¬ê¸°
+    unsigned short biPlanes;         // ì‚¬ìš©í•˜ëŠ” ìƒ‰ìƒíŒì˜ ìˆ˜
+    unsigned short biBitCount;       // í”½ì…€ í•˜ë‚˜ë¥¼ í‘œí˜„í•˜ëŠ” ë¹„íŠ¸ ìˆ˜
+    unsigned int   biCompression;    // ì••ì¶• ë°©ì‹
+    unsigned int   biSizeImage;      // ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ í”½ì…€ ë°ì´í„° í¬ê¸°
+    int            biXPelsPerMeter;  // ê·¸ë¦¼ì˜ ê°€ë¡œ í•´ìƒë„(ë¯¸í„°ë‹¹ í”½ì…€)
+    int            biYPelsPerMeter;  // ê·¸ë¦¼ì˜ ì„¸ë¡œ í•´ìƒë„(ë¯¸í„°ë‹¹ í”½ì…€)
+    unsigned int   biClrUsed;        // ìƒ‰ìƒ í…Œì´ë¸”ì—ì„œ ì‹¤ì œ ì‚¬ìš©ë˜ëŠ” ìƒ‰ìƒ ìˆ˜
+    unsigned int   biClrImportant;   // ë¹„íŠ¸ë§µì„ í‘œí˜„í•˜ê¸° ìœ„í•´ í•„ìš”í•œ ìƒ‰ìƒ ì¸ë±ìŠ¤ ìˆ˜
 }BITMAP_INFOHEADER;
-typedef struct {            // 24ºñÆ® ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ ÇÈ¼¿ ±¸Á¶Ã¼
-    unsigned char rgbtBlue;          // ÆÄ¶û
-    unsigned char rgbtGreen;         // ÃÊ·Ï
-    unsigned char rgbtRed;           // »¡°­
+typedef struct {            // 24ë¹„íŠ¸ ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ í”½ì…€ êµ¬ì¡°ì²´
+    unsigned char rgbtBlue;          // íŒŒë‘
+    unsigned char rgbtGreen;         // ì´ˆë¡
+    unsigned char rgbtRed;           // ë¹¨ê°•
 }RGB_TRIPLE;
 #pragma pack(pop)
 
-#define PIXEL_SIZE   3    // ÇÈ¼¿ ÇÑ °³ÀÇ Å©±â 3¹ÙÀÌÆ®(24ºñÆ®)
-#define PIXEL_ALIGN  4    // ÇÈ¼¿ µ¥ÀÌÅÍ °¡·Î ÇÑ ÁÙÀº 4ÀÇ ¹è¼ö Å©±â·Î ÀúÀåµÊ
+#define PIXEL_SIZE   3    // í”½ì…€ í•œ ê°œì˜ í¬ê¸° 3ë°”ì´íŠ¸(24ë¹„íŠ¸)
+#define PIXEL_ALIGN  4    // í”½ì…€ ë°ì´í„° ê°€ë¡œ í•œ ì¤„ì€ 4ì˜ ë°°ìˆ˜ í¬ê¸°ë¡œ ì €ì¥ë¨
 
 int bitfunc(char pth[]) {
-    FILE* fpBmp;                    // ºñÆ®¸Ê ÆÄÀÏ Æ÷ÀÎÅÍ
-    FILE* fpTxt;                    // ÅØ½ºÆ® ÆÄÀÏ Æ÷ÀÎÅÍ
-    BITMAP_FILEHEADER fileHeader ;    // ºñÆ®¸Ê ÆÄÀÏ Çì´õ ±¸Á¶Ã¼ º¯¼ö
-    BITMAP_INFOHEADER infoHeader ;    // ºñÆ®¸Ê Á¤º¸ Çì´õ ±¸Á¶Ã¼ º¯¼ö
+    FILE* fpBmp;                    // ë¹„íŠ¸ë§µ íŒŒì¼ í¬ì¸í„°
+    FILE* fpTxt;                    // í…ìŠ¤íŠ¸ íŒŒì¼ í¬ì¸í„°
+    BITMAP_FILEHEADER fileHeader ;    // ë¹„íŠ¸ë§µ íŒŒì¼ í—¤ë” êµ¬ì¡°ì²´ ë³€ìˆ˜
+    BITMAP_INFOHEADER infoHeader ;    // ë¹„íŠ¸ë§µ ì •ë³´ í—¤ë” êµ¬ì¡°ì²´ ë³€ìˆ˜
 
-    unsigned char* image;    // ÇÈ¼¿ µ¥ÀÌÅÍ Æ÷ÀÎÅÍ
-    int size;                // ÇÈ¼¿ µ¥ÀÌÅÍ Å©±â
-    int width, height;       // ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ °¡·Î, ¼¼·Î Å©±â
-    int padding;             // ÇÈ¼¿ µ¥ÀÌÅÍÀÇ °¡·Î Å©±â°¡ 4ÀÇ ¹è¼ö°¡ ¾Æ´Ò ¶§ ³²´Â °ø°£ÀÇ Å©±â
+    unsigned char* image;    // í”½ì…€ ë°ì´í„° í¬ì¸í„°
+    int size;                // í”½ì…€ ë°ì´í„° í¬ê¸°
+    int width, height;       // ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ ê°€ë¡œ, ì„¸ë¡œ í¬ê¸°
+    int padding;             // í”½ì…€ ë°ì´í„°ì˜ ê°€ë¡œ í¬ê¸°ê°€ 4ì˜ ë°°ìˆ˜ê°€ ì•„ë‹ ë•Œ ë‚¨ëŠ” ê³µê°„ì˜ í¬ê¸°
 
-    // °¢ ÇÈ¼¿À» Ç¥ÇöÇÒ ASCII ¹®ÀÚ. ÀÎµ¦½º°¡ ³ôÀ» ¼ö·Ï ¹à¾ÆÁö´Â °ÍÀ» Ç¥Çö
-    char ascii[] = { '#', '#', '@', '%', '=', '+', '*', ':', '-', '.', ' ' };   // 11°³
+    // ê° í”½ì…€ì„ í‘œí˜„í•  ASCII ë¬¸ì. ì¸ë±ìŠ¤ê°€ ë†’ì„ ìˆ˜ë¡ ë°ì•„ì§€ëŠ” ê²ƒì„ í‘œí˜„
+    char ascii[] = { '#', '#', '@', '%', '=', '+', '*', ':', '-', '.', ' ' };   // 11ê°œ
 
-    fpBmp = fopen(pth, "rb");    // ºñÆ®¸Ê ÆÄÀÏÀ» ¹ÙÀÌ³Ê¸® ¸ğµå·Î ¿­±â
-    if (fpBmp == NULL) {    // ÆÄÀÏ ¿­±â¿¡ ½ÇÆĞÇÏ¸é
-        printf("\nÀÌ¹ÌÁöÆÄÀÏ ¿­±â ½ÇÆĞ\n");
-        return 0;// ÇÁ·Î±×·¥ Á¾·á
+    fpBmp = fopen(pth, "rb");    // ë¹„íŠ¸ë§µ íŒŒì¼ì„ ë°”ì´ë„ˆë¦¬ ëª¨ë“œë¡œ ì—´ê¸°
+    if (fpBmp == NULL) {    // íŒŒì¼ ì—´ê¸°ì— ì‹¤íŒ¨í•˜ë©´
+        printf("\nì´ë¯¸ì§€íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨\n");
+        return 0;// í”„ë¡œê·¸ë¨ ì¢…ë£Œ
     }
-    else if (fread(&fileHeader, sizeof(BITMAP_FILEHEADER), 1, fpBmp) < 1) // ºñÆ®¸Ê ÆÄÀÏ Çì´õ ÀĞ±â
+    else if (fread(&fileHeader, sizeof(BITMAP_FILEHEADER), 1, fpBmp) < 1) // ë¹„íŠ¸ë§µ íŒŒì¼ í—¤ë” ì½ê¸°
     {
-        printf("\nÆÄÀÏÇì´õ ÀĞ±â ½ÇÆĞ\n");
+        printf("\níŒŒì¼í—¤ë” ì½ê¸° ì‹¤íŒ¨\n");
         fclose(fpBmp);
         return 0;
-    }//ÀĞ±â¿¡ ½ÇÆĞÇÏ¸é ÆÄÀÏ Æ÷ÀÎÅÍ¸¦ ´İ°í ÇÁ·Î±×·¥ Á¾·á
-    else if (fread(&infoHeader, sizeof(BITMAP_INFOHEADER), 1, fpBmp) < 1) // ºñÆ®¸Ê Á¤º¸ Çì´õ ÀĞ±â
+    }//ì½ê¸°ì— ì‹¤íŒ¨í•˜ë©´ íŒŒì¼ í¬ì¸í„°ë¥¼ ë‹«ê³  í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+    else if (fread(&infoHeader, sizeof(BITMAP_INFOHEADER), 1, fpBmp) < 1) // ë¹„íŠ¸ë§µ ì •ë³´ í—¤ë” ì½ê¸°
     {
-        printf("\nÁ¤º¸Çì´õ ÀĞ±â ½ÇÆĞ\n");
+        printf("\nì •ë³´í—¤ë” ì½ê¸° ì‹¤íŒ¨\n");
         fclose(fpBmp);
         return 0;
-    }//ÀĞ±â¿¡ ½ÇÆĞÇÏ¸é ÆÄÀÏ Æ÷ÀÎÅÍ¸¦ ´İ°í ÇÁ·Î±×·¥ Á¾·á
-    else if (fileHeader.bfType != 'MB') // ¸ÅÁ÷ ³Ñ¹ö°¡ MB°¡ ¸Â´ÂÁö È®ÀÎ(2¹ÙÀÌÆ® Å©±âÀÇ BMÀ» ¸®Æ² ¿£µğ¾ğÀ¸·Î ÀĞ¾úÀ¸¹Ç·Î MB°¡ µÊ)
+    }//ì½ê¸°ì— ì‹¤íŒ¨í•˜ë©´ íŒŒì¼ í¬ì¸í„°ë¥¼ ë‹«ê³  í”„ë¡œê·¸ë¨ ì¢…ë£Œ
+    else if (fileHeader.bfType != 'MB') // ë§¤ì§ ë„˜ë²„ê°€ MBê°€ ë§ëŠ”ì§€ í™•ì¸
     {
-        printf("¸ÅÁ÷³Ñ¹ö ¿À·ù");
+        printf("ë§¤ì§ë„˜ë²„ ì˜¤ë¥˜");
         fclose(fpBmp);
         return 0;
-    }// ¸ÅÁ÷ ³Ñ¹ö°¡ ¸ÂÁö ¾ÊÀ¸¸é ÇÁ·Î±×·¥ Á¾·á
+    }// ë§¤ì§ ë„˜ë²„ê°€ ë§ì§€ ì•Šìœ¼ë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ
     else if (infoHeader.biBitCount != 24)
     {
-        printf("\nÀÌ¹ÌÁöÆÄÀÏÀÌ 24ºñÆ®°¡ ¾Æ´Ô\n");
+        printf("\nì´ë¯¸ì§€íŒŒì¼ì´ 24ë¹„íŠ¸ê°€ ì•„ë‹˜\n");
         fclose(fpBmp);
         return 0;
-    }// 24ºñÆ® ºñÆ®¸ÊÀÌ ¾Æ´Ï¸é ÇÁ·Î±×·¥ Á¾·á
+    }// 24ë¹„íŠ¸ ë¹„íŠ¸ë§µì´ ì•„ë‹ˆë©´ í”„ë¡œê·¸ë¨ ì¢…ë£Œ
 
-    size = infoHeader.biSizeImage;    // ÇÈ¼¿ µ¥ÀÌÅÍ Å©±â
-    width = infoHeader.biWidth;       // ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â
-    height = infoHeader.biHeight;     // ºñÆ®¸Ê ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â
-
-    // ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â¿¡ ÇÈ¼¿ Å©±â¸¦ °öÇÏ¿© °¡·Î ÇÑ ÁÙÀÇ Å©±â¸¦ ±¸ÇÏ°í 4·Î ³ª¸ÓÁö¸¦ ±¸ÇÔ
-    // ±×¸®°í 4¿¡¼­ ³ª¸ÓÁö¸¦ »©ÁÖ¸é ³²´Â °ø°£À» ±¸ÇÒ ¼ö ÀÖÀ½.
-    // ¸¸¾à ³²´Â °ø°£ÀÌ 0ÀÌ¶ó¸é ÃÖÁ¾ °á°ú°¡ 4°¡ µÇ¹Ç·Î ¿©±â¼­ ´Ù½Ã 4·Î ³ª¸ÓÁö¸¦ ±¸ÇÔ
+    size = infoHeader.biSizeImage;    // í”½ì…€ ë°ì´í„° í¬ê¸°
+    width = infoHeader.biWidth;       // ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ ê°€ë¡œ í¬ê¸°
+    height = infoHeader.biHeight;     // ë¹„íŠ¸ë§µ ì´ë¯¸ì§€ì˜ ì„¸ë¡œ í¬ê¸°
+    
     padding = (PIXEL_ALIGN - ((width * PIXEL_SIZE) % PIXEL_ALIGN)) % PIXEL_ALIGN;
     
-    if (size == 0)    // ÇÈ¼¿ µ¥ÀÌÅÍ Å©±â°¡ 0ÀÌ¶ó¸é
+    if (size == 0)    // í”½ì…€ ë°ì´í„° í¬ê¸°ê°€ 0ì´ë¼ë©´
     {
-        // ÀÌ¹ÌÁöÀÇ °¡·Î Å©±â * ÇÈ¼¿ Å©±â¿¡ ³²´Â °ø°£À» ´õÇØÁÖ¸é ¿ÏÀüÇÑ °¡·Î ÇÑ ÁÙ Å©±â°¡ ³ª¿È
-        // ¿©±â¿¡ ÀÌ¹ÌÁöÀÇ ¼¼·Î Å©±â¸¦ °öÇØÁÖ¸é ÇÈ¼¿ µ¥ÀÌÅÍÀÇ Å©±â¸¦ ±¸ÇÒ ¼ö ÀÖÀ½
         size = (width * PIXEL_SIZE + padding) * height;
     }
 
-    image = malloc(size);    // ÇÈ¼¿ µ¥ÀÌÅÍÀÇ Å©±â¸¸Å­ µ¿Àû ¸Ş¸ğ¸® ÇÒ´ç
+    image = malloc(size);    // í”½ì…€ ë°ì´í„°ì˜ í¬ê¸°ë§Œí¼ ë™ì  ë©”ëª¨ë¦¬ í• ë‹¹
 
-    // ÆÄÀÏ Æ÷ÀÎÅÍ¸¦ ÇÈ¼¿ µ¥ÀÌÅÍÀÇ ½ÃÀÛ À§Ä¡·Î ÀÌµ¿
+    // íŒŒì¼ í¬ì¸í„°ë¥¼ í”½ì…€ ë°ì´í„°ì˜ ì‹œì‘ ìœ„ì¹˜ë¡œ ì´ë™
     fseek(fpBmp, fileHeader.bfOffBits, SEEK_SET);
 
-    // ÆÄÀÏ¿¡¼­ ÇÈ¼¿ µ¥ÀÌÅÍ Å©±â¸¸Å­ ÀĞÀ½. ÀĞ±â¿¡ ½ÇÆĞÇÏ¸é ÆÄÀÏ Æ÷ÀÎÅÍ¸¦ ´İ°í ÇÁ·Î±×·¥ Á¾·á
+    // íŒŒì¼ì—ì„œ í”½ì…€ ë°ì´í„° í¬ê¸°ë§Œí¼ ì½ìŒ. ì½ê¸°ì— ì‹¤íŒ¨í•˜ë©´ íŒŒì¼ í¬ì¸í„°ë¥¼ ë‹«ê³  í”„ë¡œê·¸ë¨ ì¢…ë£Œ
     if (fread(image, size, 1, fpBmp) < 1)
     {
-        printf("\n ÀÌ¹ÌÁö µ¥ÀÌÅÍ ÀĞ±â ½ÇÆĞ\n");
+        printf("\n ì´ë¯¸ì§€ ë°ì´í„° ì½ê¸° ì‹¤íŒ¨\n");
         fclose(fpBmp);
         //return 0;
     }
 
-    fclose(fpBmp);    // ºñÆ®¸Ê ÆÄÀÏ ´İ±â
+    fclose(fpBmp);    // ë¹„íŠ¸ë§µ íŒŒì¼ ë‹«ê¸°
 
-    fpTxt = fopen("./text_file/ascii.txt", "w");    // °á°ú Ãâ·Â¿ë ÅØ½ºÆ® ÆÄÀÏ ¿­±â
-    if (fpTxt == NULL)    // ÆÄÀÏ ¿­±â¿¡ ½ÇÆĞÇÏ¸é
+    fpTxt = fopen("./text_file/ascii.txt", "w");    // ê²°ê³¼ ì¶œë ¥ìš© í…ìŠ¤íŠ¸ íŒŒì¼ ì—´ê¸°
+    if (fpTxt == NULL)    // íŒŒì¼ ì—´ê¸°ì— ì‹¤íŒ¨í•˜ë©´
     {
-        printf("\nÅØ½ºÆ®ÆÄÀÏ ¿­±â ½ÇÆĞ\n");
-        free(image);      // ÇÈ¼¿ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÑ µ¿Àû ¸Ş¸ğ¸® ÇØÁ¦
-        //return 0;         // ÇÁ·Î±×·¥ Á¾·á
+        printf("\ní…ìŠ¤íŠ¸íŒŒì¼ ì—´ê¸° ì‹¤íŒ¨\n");
+        free(image);      // í”½ì…€ ë°ì´í„°ë¥¼ ì €ì¥í•œ ë™ì  ë©”ëª¨ë¦¬ í•´ì œ
+        //return 0;         // í”„ë¡œê·¸ë¨ ì¢…ë£Œ
     }
     
-    // ÇÈ¼¿ µ¥ÀÌÅÍ´Â ¾Æ·¡ À§°¡ µÚÁıÇô¼­ ÀúÀåµÇ¹Ç·Î ¾Æ·¡ÂÊºÎÅÍ ¹İº¹
-    // ¼¼·Î Å©±â¸¸Å­ ¹İº¹
+    // í”½ì…€ ë°ì´í„°ëŠ” ì•„ë˜ ìœ„ê°€ ë’¤ì§‘í˜€ì„œ ì €ì¥ë˜ë¯€ë¡œ ì•„ë˜ìª½ë¶€í„° ë°˜ë³µ
+    // ì„¸ë¡œ í¬ê¸°ë§Œí¼ ë°˜ë³µ
     for (int y = height - 1; y >= 0; y--)
     {
-        // °¡·Î Å©±â¸¸Å­ ¹İº¹
+        // ê°€ë¡œ í¬ê¸°ë§Œí¼ ë°˜ë³µ
         for (int x = 0; x < width; x++)
         {
-            // ÀÏ·Ä·Î µÈ ¹è¿­¿¡ Á¢±ÙÇÏ±â À§ÇØ ÀÎµ¦½º¸¦ °è»ê
-            // (x * ÇÈ¼¿ Å©±â)´Â ÇÈ¼¿ÀÇ °¡·Î À§Ä¡
-            // (y * (¼¼·Î Å©±â * ÇÈ¼¿ Å©±â))´Â ÇÈ¼¿ÀÌ ¸î ¹øÂ° ÁÙÀÎÁö °è»ê
-            // ³²´Â °ø°£ * y´Â ÁÙº°·Î ´©ÀûµÈ ³²´Â °ø°£
+            // ì¼ë ¬ë¡œ ëœ ë°°ì—´ì— ì ‘ê·¼í•˜ê¸° ìœ„í•´ ì¸ë±ìŠ¤ë¥¼ ê³„ì‚°
             int index = (x * PIXEL_SIZE) + (y * (width * PIXEL_SIZE)) + (padding * y);
 
-            // ÇöÀç ÇÈ¼¿ÀÇ ÁÖ¼Ò¸¦ RGBTRIPLE Æ÷ÀÎÅÍ·Î º¯È¯ÇÏ¿© RGBTRIPLE Æ÷ÀÎÅÍ¿¡ ÀúÀå
+            // í˜„ì¬ í”½ì…€ì˜ ì£¼ì†Œë¥¼ RGBTRIPLE í¬ì¸í„°ë¡œ ë³€í™˜í•˜ì—¬ RGBTRIPLE í¬ì¸í„°ì— ì €ì¥
             RGB_TRIPLE* pixel = (RGB_TRIPLE*)&image[index];
 
-            // RGBTRIPLE ±¸Á¶Ã¼·Î ÆÄ¶û, ÃÊ·Ï, »¡°­°ªÀ» °¡Á®¿È
+            // RGBTRIPLE êµ¬ì¡°ì²´ë¡œ íŒŒë‘, ì´ˆë¡, ë¹¨ê°•ê°’ì„ ê°€ì ¸ì˜´
             unsigned char blue = pixel->rgbtBlue;
             unsigned char green = pixel->rgbtGreen;
             unsigned char red = pixel->rgbtRed;
 
-            // ÆÄ¶û, ÃÊ·Ï, »¡°­°ªÀÇ Æò±ÕÀ» ±¸ÇÏ¸é Èæ¹é ÀÌ¹ÌÁö¸¦ ¾òÀ» ¼ö ÀÖÀ½
+            // íŒŒë‘, ì´ˆë¡, ë¹¨ê°•ê°’ì˜ í‰ê· ì„ êµ¬í•˜ë©´ í‘ë°± ì´ë¯¸ì§€ë¥¼ ì–»ì„ ìˆ˜ ìˆìŒ
             unsigned char gray = (red + green + blue) / PIXEL_SIZE;
 
-            // Èæ¹é°ª¿¡ ASCII ¹®ÀÚÀÇ °³¼ö¸¦ °öÇÑ µÚ 256À¸·Î ³ª´©¸é Èæ¹é°ª¿¡ µû¶ó 
-            // ASCII ¹®ÀÚÀÇ ÀÎµ¦½º¸¦ ¾òÀ» ¼ö ÀÖÀ½
+            // í‘ë°±ê°’ì— ASCII ë¬¸ìì˜ ê°œìˆ˜ë¥¼ ê³±í•œ ë’¤ 256ìœ¼ë¡œ ë‚˜ëˆ„ë©´ í‘ë°±ê°’ì— ë”°ë¼ 
+            // ASCII ë¬¸ìì˜ ì¸ë±ìŠ¤ë¥¼ ì–»ì„ ìˆ˜ ìˆìŒ
             char c = ascii[gray * sizeof(ascii) / 256];
 
-            // ºñÆ®¸Ê ÀÌ¹ÌÁö¿¡¼­´Â ÇÈ¼¿ÀÇ °¡·Î, ¼¼·Î Å©±â°¡ ¶È°°Áö¸¸
-            // º¸Åë ASCII ¹®ÀÚ´Â ¼¼·Î·Î ±æÂßÇÑ ÇüÅÂÀÌ¹Ç·Î Á¤»ç°¢Çü ¸ğ¾ç°ú ºñ½ÁÇÏ°Ô º¸¿©ÁÖ±â À§ÇØ
-            // °°Àº ¹®ÀÚ¸¦ µÎ ¹ø ÀúÀåÇØÁÜ
-            fprintf(fpTxt, "%c%c", c, c);    // ÅØ½ºÆ® ÆÄÀÏ¿¡ ¹®ÀÚ Ãâ·Â
+
+            //ASCII ë¬¸ìëŠ” ì„¸ë¡œë¡œ ê¸¸ì­‰í•œ í˜•íƒœì´ë¯€ë¡œ ì •ì‚¬ê°í˜• ëª¨ì–‘ê³¼ ë¹„ìŠ·í•˜ê²Œ ë³´ì—¬ì£¼ê¸° ìœ„í•´ ê°™ì€ ë¬¸ìë¥¼ ë‘ ë²ˆ ì €ì¥í•´ì¤Œ
+            fprintf(fpTxt, "%c%c", c, c);    // í…ìŠ¤íŠ¸ íŒŒì¼ì— ë¬¸ì ì¶œë ¥
         }
 
-        fprintf(fpTxt, "\n");    // °¡·Î ÇÈ¼¿ ÀúÀåÀÌ ³¡³µÀ¸¸é ÁÙ¹Ù²ŞÀ» ÇØÁÜ
+        fprintf(fpTxt, "\n");    // ê°€ë¡œ í”½ì…€ ì €ì¥ì´ ëë‚¬ìœ¼ë©´ ì¤„ë°”ê¿ˆì„ í•´ì¤Œ
     }
 
-    fclose(fpTxt);    // ÅØ½ºÆ® ÆÄÀÏ ´İ±â
-    free(image);      // ÇÈ¼¿ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÑ µ¿Àû ¸Ş¸ğ¸® ÇØÁ¦
+    fclose(fpTxt);    // í…ìŠ¤íŠ¸ íŒŒì¼ ë‹«ê¸°
+    free(image);      // í”½ì…€ ë°ì´í„°ë¥¼ ì €ì¥í•œ ë™ì  ë©”ëª¨ë¦¬ í•´ì œ
     return 1;
 }
