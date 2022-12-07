@@ -1,5 +1,4 @@
 #C_project
-------
 소스코드:
   - main.c : main함수 있는 c파일
   - dir.h : 딕셔너리 관련 헤더파일
