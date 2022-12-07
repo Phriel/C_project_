@@ -1,4 +1,4 @@
-__C_project___
+_C_project_
 -----
 소스코드:
   - main.c : main함수 있는 c파일
